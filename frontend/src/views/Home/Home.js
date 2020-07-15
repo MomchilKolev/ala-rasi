@@ -6,6 +6,7 @@ import styles from "./Home.module.scss";
 import movies from "../../data/movies";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 const Home = props => {
     return (
@@ -21,7 +22,7 @@ const Home = props => {
                     </Link>
                 ))}
             </div>
-            <div>Filters</div>
+            <Sidebar />
         </div>
     );
 };

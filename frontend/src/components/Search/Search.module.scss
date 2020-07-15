@@ -1,0 +1,24 @@
+@import "../../App.module.scss";
+
+.search {
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+        background-color: var(--dark);
+        border: 0;
+        font-size: 24px;
+        padding: 10px;
+        color: var(--green);
+
+        &::placeholder {
+            color: var(--green);
+        }
+    }
+}

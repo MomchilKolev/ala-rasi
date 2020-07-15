@@ -1,0 +1,10 @@
+@import "../../App.module.scss";
+
+.sidebar {
+    width: 600px;
+    box-shadow: var(--box-shadow-sidebar);
+    box-sizing: border-box;
+    padding: 50px;
+    border-radius: 20px;
+    color: var(--green);
+}
