@@ -1,0 +1,13 @@
+@import "../../App.module.scss";
+
+.home {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 100%;
+
+    .movies {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 50px;
+    }
+}

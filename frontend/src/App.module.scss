@@ -2,6 +2,12 @@
     --dark: #1e1e31;
     --green: #02c39a;
     --pink: #d8bbff;
+    --box-shadow-sidebar: 0px 16px 32px rgba(0, 0, 0, 0.15),
+        0px -12px 24px rgba(248, 252, 255, 0.15);
+    --box-shadow-button: inset 0px 8px 12px rgba(0, 0, 0, 0.15),
+        inset 0px -8px 12px rgba(255, 255, 255, 0.15);
+    --box-shadow-button-active: 0px 8px 12px rgba(0, 0, 0, 0.15),
+        0px -8px 12px rgba(255, 255, 255, 0.15);
 }
 
 .App {
@@ -11,4 +17,9 @@
     margin: 0;
     font-family: "Montserrat", sans-serif;
     /* font-family: 'Raleway', sans-serif; */
+
+    .container {
+        width: 90%;
+        margin: auto;
+    }
 }

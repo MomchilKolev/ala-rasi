@@ -13,13 +13,15 @@ function App() {
     return (
         <div className={styles.App}>
             <Navbar />
-            <Suspense fallback="Loading...">
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/movie/:id" component={Movie} />
-                    <Route path="/charts" component={Charts} />
-                </Switch>
-            </Suspense>
+            <div className={styles.container}>
+                <Suspense fallback="Loading...">
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/movie/:id" component={Movie} />
+                        <Route path="/charts" component={Charts} />
+                    </Switch>
+                </Suspense>
+            </div>
         </div>
     );
 }
