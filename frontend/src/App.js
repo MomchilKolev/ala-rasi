@@ -1,11 +1,13 @@
 import React from "react";
 
+import Navbar from "./components/Navbar/Navbar";
+
 import styles from "./App.module.scss";
 
 function App() {
     return (
         <div className={styles.App}>
-            <header className="App-header">Ala Rasi</header>
+            <Navbar />
         </div>
     );
 }

@@ -1,0 +1,29 @@
+@import "../../App.module.scss";
+
+.button,
+.link {
+    background-color: var(--dark);
+    color: var(--green);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+
+    &.md {
+        height: 40px;
+        min-width: 160px;
+        font-size: 24px;
+        box-shadow: inset 0px 8px 12px rgba(0, 0, 0, 0.15),
+            inset 0px -8px 12px rgba(255, 255, 255, 0.15);
+    }
+    &.active {
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15),
+            0px -8px 12px rgba(255, 255, 255, 0.15);
+    }
+}
+
+.link {
+    text-decoration: none;
+}

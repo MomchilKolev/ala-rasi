@@ -1,5 +1,14 @@
+:root {
+    --dark: #1e1e31;
+    --green: #02c39a;
+    --pink: #d8bbff;
+}
+
 .App {
     text-align: center;
+    min-height: 100vh;
+    background-color: var(--dark);
+    margin: 0;
     font-family: "Montserrat", sans-serif;
     /* font-family: 'Raleway', sans-serif; */
 }
