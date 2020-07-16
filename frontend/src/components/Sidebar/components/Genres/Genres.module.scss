@@ -3,6 +3,7 @@
 .genres {
     display: grid;
     text-align: left;
+    grid-gap: 25px;
 
     .heading-box {
         display: grid;
@@ -25,7 +26,6 @@
         width: 500px;
         display: flex;
         flex-wrap: wrap;
-        margin-top: 25px;
         // gap: 25px; // works for firefox, not chrome
 
         > *:not(:last-child) {
