@@ -14,7 +14,7 @@ const Button = props => {
     const active = location.pathname == `${props.to}` ? styles.active : "";
     const size = props.size ? styles[props.size] : styles.md;
 
-    const isLink = props.to != "";
+    const isLink = props.to != undefined;
     const link = (
         <Link className={`${styles.link} ${size} ${active}`} to={props.to}>
             {props.text}
