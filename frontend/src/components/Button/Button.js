@@ -15,18 +15,26 @@ const Button = props => {
     const size = props.size ? styles[props.size] : styles.md;
 
     const isLink = props.to != undefined;
-    const link = (
-        <Link className={`${styles.link} ${size} ${active}`} to={props.to}>
-            {props.text}
-        </Link>
-    );
-    const button = (
-        <button className={`${styles.button} ${size} ${active}`} type="button">
-            {props.text}
-        </button>
-    );
 
-    return <>{isLink ? link : button}</>;
+    return (
+        <>
+            {isLink ? (
+                <Link
+                    className={`${styles.link} ${size} ${active}`}
+                    to={props.to}
+                >
+                    {props.text}
+                </Link>
+            ) : (
+                <button
+                    className={`${styles.button} ${size} ${active}`}
+                    type="button"
+                >
+                    <p className={styles.text}>{props.text}</p>
+                </button>
+            )}
+        </>
+    );
 };
 
 export default Button;
