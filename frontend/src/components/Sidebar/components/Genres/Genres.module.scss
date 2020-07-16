@@ -1,0 +1,36 @@
+@import "../../../../App.module.scss";
+
+.genres {
+    display: grid;
+    text-align: left;
+
+    .heading-box {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        justify-content: start;
+        grid-gap: 25px;
+        .heading {
+            font-size: 24px;
+            display: inline;
+            margin: 0;
+        }
+        .span {
+            font-style: italic;
+            margin-top: 1px; // I like it better
+        }
+    }
+
+    .genres-box {
+        width: 500px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 25px;
+        // gap: 25px; // works for firefox, not chrome
+
+        > *:not(:last-child) {
+            margin-right: 25px;
+            margin-bottom: 50px;
+        }
+    }
+}
