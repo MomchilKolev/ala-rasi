@@ -1,0 +1,47 @@
+@import "../../App.module.scss";
+
+.movie {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 50px;
+    color: var(--green);
+    font-family: Railway;
+    font-size: 18px;
+
+    .movie-data {
+        display: grid;
+        grid-gap: 25px;
+        border-radius: 20px;
+        .title {
+            display: inline;
+            font-size: 24px;
+
+            .year {
+                font-weight: normal;
+                font-style: italic;
+                font-size: 18px;
+            }
+        }
+
+        .scores {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 50px;
+        }
+    }
+
+    > * {
+        // border: 1px solid white;
+        box-shadow: var(--box-shadow);
+    }
+
+    .plot {
+        border-radius: 20px;
+        padding: 20px;
+        grid-column: 1/-1;
+
+        h5 {
+            font-size: 24px;
+        }
+    }
+}

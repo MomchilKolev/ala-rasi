@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     ACTION_AND_ADVENTURE: "Action & Adventure",
     ANIMATION: "Animation",
     COMEDY: "Comedy",
@@ -6,5 +6,6 @@ export default {
     HORROR: "Horror",
     KIDS_AND_FAMILY: "Kids & Family",
     MYSTERY_AND_SUSPENSE: "Mystery & Suspense",
+    ROMANCE: "Romance",
     SCIENCE_FICTION_AND_FANTASY: "Science Fiction & Fantasy"
 };
