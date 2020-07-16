@@ -7,4 +7,8 @@
     padding: 50px;
     border-radius: 20px;
     color: var(--green);
+
+    display: grid;
+    grid-gap: 50px;
+    grid-auto-rows: max-content;
 }
