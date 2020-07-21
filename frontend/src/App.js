@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import styles from "./App.module.scss";
 
 import { ratings } from "./reactive_vars/ratings";
+import { year } from "./reactive_vars/year";
 
 const { REACT_APP_URI: uri } = process.env;
 
@@ -19,6 +20,11 @@ const client = new ApolloClient({
                     ratings: {
                         read() {
                             return ratings();
+                        }
+                    },
+                    year: {
+                        read() {
+                            return year();
                         }
                     }
                 }
