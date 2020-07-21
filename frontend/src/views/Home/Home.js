@@ -10,6 +10,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 
 import { ratings, RATINGS } from "../../reactive_vars/ratings";
 import { year, YEAR } from "../../reactive_vars/year";
+import { genres, GENRES } from "../../reactive_vars/genres";
 
 const MOVIES = gql`
     {
@@ -20,6 +21,7 @@ const MOVIES = gql`
             tomatoMeter
             audienceScore
             year
+            genre
         }
     }
 `;
@@ -30,6 +32,7 @@ const Home = props => {
     const { loading, error, data } = useQuery(MOVIES);
     const { data: dataRatings } = useQuery(RATINGS);
     const { data: dataYear } = useQuery(YEAR);
+    const { data: dataGenres } = useQuery(GENRES);
 
     // Each movie needs to pass every test to be shown
     // tests are pure functions accepting the current movie
@@ -45,7 +48,23 @@ const Home = props => {
         m => {
             const tmp = year();
             return m.year >= tmp.from && m.year <= tmp.to;
-        }
+        },
+        // Use IIFE here, because we don't need
+        // to recalculate selectedGenres for every movie
+        (m => {
+            const tmp = genres();
+            const selectedGenres = Object.entries(tmp).reduce((acc, curr) => {
+                if (curr[1] === true) acc.push(curr[0]);
+                return acc;
+            }, []);
+            return m => {
+                return selectedGenres.length == 0
+                    ? true
+                    : m.genre.some(mg => {
+                          return selectedGenres.includes(mg);
+                      });
+            };
+        })()
     ];
 
     const debounced = useCallback(
@@ -63,6 +82,7 @@ const Home = props => {
         dataRatings.ratings.tomatoMeter,
         dataRatings.ratings.audienceScore,
         dataYear,
+        dataGenres,
         data,
         debounced
     ]);

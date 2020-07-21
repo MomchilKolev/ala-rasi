@@ -8,6 +8,7 @@ import styles from "./App.module.scss";
 
 import { ratings } from "./reactive_vars/ratings";
 import { year } from "./reactive_vars/year";
+import { genres } from "./reactive_vars/genres";
 
 const { REACT_APP_URI: uri } = process.env;
 
@@ -25,6 +26,11 @@ const client = new ApolloClient({
                     year: {
                         read() {
                             return year();
+                        }
+                    },
+                    genres: {
+                        read() {
+                            return genres();
                         }
                     }
                 }
