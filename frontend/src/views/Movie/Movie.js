@@ -1,20 +1,34 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { gql, useQuery } from "@apollo/client";
 
 import styles from "./Movie.module.scss";
 
-import movies from "../../data/movies";
+const MOVIE = gql`
+    query MovieQuery($id: Int) {
+        movie(id: $id) {
+            title
+            plot
+            year
+            rating
+            genre
+            tomatoMeter
+            audienceScore
+            image
+        }
+    }
+`;
 
-const Movie = props => {
+const Movie = React.memo(props => {
     const { id } = useParams();
-    // I absolutely shouldn't iterate over an array to find a single value
-    const moviesObj = movies.reduce((acc, curr) => {
-        const { id, ...movie } = curr;
-        acc[id] = movie;
-        return acc;
-    }, {});
 
-    console.log("movie", moviesObj[id]);
+    const { loading, error, data } = useQuery(MOVIE, {
+        variables: { id: +id }
+    });
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
     const {
         title,
         year,
@@ -26,7 +40,7 @@ const Movie = props => {
         plot,
         imdbLink,
         rottenTomatoesLink
-    } = moviesObj[id];
+    } = data.movie;
 
     return (
         <div className={styles.movie}>
@@ -55,6 +69,6 @@ const Movie = props => {
             </div>
         </div>
     );
-};
+});
 
 export default Movie;

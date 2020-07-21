@@ -1,18 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useQuery, gql } from "@apollo/client";
 
 import styles from "./Home.module.scss";
-
-import movies from "../../data/movies";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
+const MOVIES = gql`
+    {
+        movies {
+            id
+            title
+            image
+            tomatoMeter
+            audienceScore
+        }
+    }
+`;
+
 const Home = props => {
+    const { loading, error, data } = useQuery(MOVIES);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
     return (
         <div className={styles.home}>
             <div className={styles.movies}>
-                {movies.map(m => (
+                {data.movies.map(m => (
                     <Link
                         to={`/movie/${m.id}`}
                         key={m.id}

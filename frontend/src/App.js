@@ -18,21 +18,6 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
 });
 
-client
-    .query({
-        query: gql`
-            {
-                movies {
-                    title
-                    image
-                    tomatoMeter
-                    audienceScore
-                }
-            }
-        `
-    })
-    .then(console.log);
-
 const Home = lazy(() => import("./views/Home/Home"));
 const Movie = lazy(() => import("./views/Movie/Movie"));
 const Charts = lazy(() => import("./views/Charts/Charts"));

@@ -4,7 +4,8 @@ const typeDefs = require("./models/Movie");
 
 const resolvers = {
     Query: {
-        movies: () => movies
+        movies: () => movies,
+        movie: (root, args, context, info) => movies.find(m => m.id === args.id)
     }
 };
 

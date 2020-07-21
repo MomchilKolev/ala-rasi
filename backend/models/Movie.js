@@ -15,5 +15,6 @@ module.exports = gql`
 
     type Query {
         movies: [Movie]
+        movie(id: Int): Movie
     }
 `;

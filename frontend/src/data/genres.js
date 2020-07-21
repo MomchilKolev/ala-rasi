@@ -6,6 +6,5 @@ module.exports = {
     HORROR: "Horror",
     KIDS_AND_FAMILY: "Kids & Family",
     MYSTERY_AND_SUSPENSE: "Mystery & Suspense",
-    ROMANCE: "Romance",
     SCIENCE_FICTION_AND_FANTASY: "Science Fiction & Fantasy"
 };
