@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+    frontend:
+        build: ./frontend
+        container_name: ala_rasi_frontend
+        ports:
+            - "3000:3000"
+        stdin_open: true
+    backend:
+        build: ./backend
+        container_name: ala_rasi_backend
