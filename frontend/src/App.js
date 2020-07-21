@@ -1,21 +1,30 @@
 import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
-import {
-    ApolloProvider,
-    ApolloClient,
-    InMemoryCache,
-    gql
-} from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 import Navbar from "./components/Navbar/Navbar";
 
 import styles from "./App.module.scss";
 
+import { ratings } from "./reactive_vars/ratings";
+
 const { REACT_APP_URI: uri } = process.env;
 
 const client = new ApolloClient({
     uri,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache({
+        typePolicies: {
+            Query: {
+                fields: {
+                    ratings: {
+                        read() {
+                            return ratings();
+                        }
+                    }
+                }
+            }
+        }
+    })
 });
 
 const Home = lazy(() => import("./views/Home/Home"));
